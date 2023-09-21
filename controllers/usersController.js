@@ -17,4 +17,18 @@ const createUser = async (req, res) => {
   }
 };
 
-export default createUser;
+const validateUser = async (req, res) => {
+  try {
+    const { user, password } = req.body;
+
+    const validation = usersModel.findOne({ user, password });
+
+    res.Send({ validation: !!validation });
+  } catch (error) {
+    console.log(
+      `ocurrio un error al intentar validar la existecia del usuario en el backend ${error}`
+    );
+  }
+};
+
+export { createUser, validateUser };
