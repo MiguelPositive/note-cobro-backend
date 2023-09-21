@@ -17,13 +17,14 @@ const createUser = async (req, res) => {
   }
 };
 
-const validateUser = async (req, res) => {
+const validateCredentials = async (req, res) => {
   try {
     const { user, password } = req.body;
 
     const validation = usersModel.findOne({ user, password });
 
-    res.Send({ validation: !!validation });
+    //El operador !! me convierte la expresion a booleana
+    res.send({ validation: !!validation });
   } catch (error) {
     console.log(
       `ocurrio un error al intentar validar la existecia del usuario en el backend ${error}`
@@ -31,4 +32,4 @@ const validateUser = async (req, res) => {
   }
 };
 
-export { createUser, validateUser };
+export { createUser, validateCredentials };
