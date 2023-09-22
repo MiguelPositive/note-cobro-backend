@@ -21,9 +21,11 @@ const validateCredentials = async (req, res) => {
   try {
     const { user, password } = req.body;
 
-    const validation = usersModel.findOne({ user, password });
+    const validation = await usersModel.findOne({ user, password });
 
     //El operador !! me convierte la expresion a booleana
+
+    console.log(validation);
     res.send({ validation: !!validation });
   } catch (error) {
     console.log(
