@@ -25,7 +25,6 @@ const validateCredentials = async (req, res) => {
 
     //El operador !! me convierte la expresion a booleana
 
-    console.log(await validation);
     res.send({ validation: !!validation });
   } catch (error) {
     console.log(
