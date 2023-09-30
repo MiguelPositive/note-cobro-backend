@@ -30,6 +30,8 @@ const validateCredentials = async (req, res) => {
     console.log(
       `ocurrio un error al intentar validar la existecia del usuario en el backend ${error}`
     );
+
+    res.sendStatus(503);
   }
 };
 
