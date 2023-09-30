@@ -1,5 +1,5 @@
 import usersModel from "../models/usersModel.js";
-import { Performance } from "node:perf_hooks";
+import { performance } from "node:perf_hooks";
 
 const createUser = async (req, res) => {
   const { user, password } = req.body;
@@ -18,6 +18,8 @@ const createUser = async (req, res) => {
   }
 };
 
+let t1 = performance.now();
+
 const validateCredentials = async (req, res) => {
   try {
     const { user, password } = req.body;
@@ -34,8 +36,9 @@ const validateCredentials = async (req, res) => {
 
     res.sendStatus(503);
   }
+  let t2 = performance.now();
 
-  console.log(PerformanceEventTiming(validateCredentials()));
+  console.log(t2 - t1);
 };
 
 export { createUser, validateCredentials };
