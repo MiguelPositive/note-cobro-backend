@@ -17,7 +17,7 @@ const createUser = async (req, res) => {
   }
 };
 
-let t1 = performance.now();
+
 
 const validateCredentials = async (req, res) => {
   try {
