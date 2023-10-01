@@ -1,5 +1,4 @@
 import usersModel from "../models/usersModel.js";
-import { performance } from "node:perf_hooks";
 
 const createUser = async (req, res) => {
   const { user, password } = req.body;
@@ -34,11 +33,8 @@ const validateCredentials = async (req, res) => {
       `ocurrio un error al intentar validar la existecia del usuario en el backend ${error}`
     );
 
-    res.sendStatus(503);
+    res.sendStatus(500);
   }
-  let t2 = performance.now();
-
-  console.log(t2 - t1);
 };
 
 export { createUser, validateCredentials };
