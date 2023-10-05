@@ -8,7 +8,7 @@ const createDebtor = async (req, res) => {
 
     newDebtor.save();
 
-    res.SendStatus(200);
+    res.sendStatus(200);
   } catch (error) {
     console.log(
       `ocurrio un error en el backend al intentar crear el deudor. ${error}`
