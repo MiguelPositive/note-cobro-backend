@@ -4,6 +4,7 @@ import { configDotenv } from "dotenv";
 import connectionDb from "./config/connectionDb.js";
 
 import usersRouter from "./routes/usersRouter.js";
+import debtorsRouter from "./routes/debtorsRouter.js";
 
 import cors from "cors";
 
@@ -22,6 +23,7 @@ connectionDb();
 app.use(cors());
 
 app.use("/", usersRouter);
+app.use("/", debtorsRouter);
 
 app.listen(PORT, () => {
   console.log(`servidor backend esucuchando en el puerto ${PORT}`);

@@ -5,9 +5,11 @@ const createUser = async (req, res) => {
 
   const newUser = await usersModel({ user, password });
 
+  newUser.save();
+
   res.sendStatus(200);
 
-  newUser.save();
+  
 
   try {
   } catch (error) {
