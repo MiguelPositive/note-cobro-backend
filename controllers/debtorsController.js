@@ -14,7 +14,7 @@ const createDebtor = async (req, res) => {
       `ocurrio un error en el backend al intentar crear el deudor. ${error}`
     );
 
-    res.SendStatus(500);
+    res.sendStatus(500);
   }
 };
 
