@@ -28,6 +28,6 @@ const debtorsSchema = mongoose.Schema({
   },
 });
 
-const debtorsModel = mongoose.Model("debtors", debtorsSchema);
+const debtorsModel = mongoose.model("debtors", debtorsSchema);
 
 export default debtorsModel;

@@ -1,4 +1,4 @@
-import debtorsModel from "../models/debptorsModel";
+import debtorsModel from "../models/debptorsModel.js";
 
 const createDebtor = async (req, res) => {
   try {
