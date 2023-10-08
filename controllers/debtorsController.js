@@ -18,4 +18,17 @@ const createDebtor = async (req, res) => {
   }
 };
 
-export { createDebtor };
+const getDebtors = async (req, res) => {
+  try {
+    const debtors = await debtorsModel.find();
+
+    res.send({ debtors });
+  } catch (error) {
+    console.log(
+      `ocurrio un error en el backend al intentar consultar los deudores. ${error}`
+    );
+    res.sendStatus(500);
+  }
+};
+
+export { createDebtor, getDebtors };
