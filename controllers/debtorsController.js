@@ -31,4 +31,39 @@ const getDebtors = async (req, res) => {
   }
 };
 
-export { createDebtor, getDebtors };
+const addDebt = async (req, res) => {
+  try {
+    const { _id, debt, products, creditDate, totalPrice } = req.body;
+
+    console.log(totalPrice);
+
+    await debtorsModel.updateOne(
+      { _id },
+      {
+        $push: {
+          debt: {
+            creditDate: creditDate,
+            products: products,
+          },
+        },
+      }
+    );
+
+    await debtorsModel.updateOne(
+      { _id },
+      {
+        $set: {
+          totalPrice: totalPrice,
+        },
+      }
+    );
+
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(
+      `ocurrio un error en le backend al intentar añadir la deuda al cliente: ${error}`
+    );
+  }
+};
+
+export { createDebtor, getDebtors, addDebt };

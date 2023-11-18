@@ -26,7 +26,14 @@ const debtorsSchema = mongoose.Schema({
   debt: {
     type: Array,
   },
+
+  totalPrice: {
+
+    type: Number,
+}
+
 });
+
 
 const debtorsModel = mongoose.model("debtors", debtorsSchema);
 
