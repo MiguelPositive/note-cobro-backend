@@ -28,12 +28,25 @@ const debtorsSchema = mongoose.Schema({
   },
 
   totalPrice: {
-
     type: Number,
-}
+  },
 
+  payDay: {
+    type: Number,
+  },
+
+  payMonth: {
+    type: Number,
+  },
+
+  payHour: {
+    type: String,
+  },
+
+  maxAmounth: {
+    type: Number,
+  },
 });
-
 
 const debtorsModel = mongoose.model("debtors", debtorsSchema);
 

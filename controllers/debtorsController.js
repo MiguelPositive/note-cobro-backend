@@ -66,4 +66,21 @@ const addDebt = async (req, res) => {
   }
 };
 
-export { createDebtor, getDebtors, addDebt };
+const createAlert = async (req, res) => {
+  try {
+    const { _id, payDay, payMonth, payHour, maxAmount } = req.body;
+
+    await debtorsModel.updateOne(
+      { _id },
+      { $set: { payDay, payMonth, payHour, maxAmount } }
+    );
+
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(
+      `ocurrio un error en el backend al intentar crear la alerta: ${error}`
+    );
+  }
+};
+
+export { createDebtor, getDebtors, addDebt, createAlert };
