@@ -40,7 +40,12 @@ const debtorsSchema = mongoose.Schema({
   },
 
   payHour: {
-    type: String,
+    type: Number,
+  },
+
+  payMinute: {
+
+    type: Number,
   },
 
   maxAmounth: {
